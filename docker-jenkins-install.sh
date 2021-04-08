@@ -19,6 +19,10 @@ apt-get install docker-ce docker-ce-cli containerd.io -y
 systemctl enable docker
 systemctl start docker
 
+# Optional docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
 
 # run jenkins
 mkdir -p /var/jenkins_home
