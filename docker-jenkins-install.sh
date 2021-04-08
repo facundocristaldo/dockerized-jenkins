@@ -4,6 +4,9 @@
 #apt-get update -y
 #apt-get upgrade -y
 
+groupadd docker
+usermod -aG docker docker
+
 # install docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \
@@ -15,13 +18,14 @@ apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io -y
 systemctl enable docker
 systemctl start docker
-usermod -aG docker docker
+
 
 # run jenkins
 mkdir -p /var/jenkins_home
 chown -R docker:docker /var/jenkins_home/
 
-docker login
+docker login 
+
 echo "Going to build jenkins-docker image"
 docker build -t jenkins-docker .
 
