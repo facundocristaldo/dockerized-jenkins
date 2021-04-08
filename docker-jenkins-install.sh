@@ -21,7 +21,7 @@ usermod -aG docker docker
 mkdir -p /var/jenkins_home
 chown -R docker:docker /var/jenkins_home/
 
-
+docker login
 echo "Going to build jenkins-docker image"
 docker build -t jenkins-docker .
 
