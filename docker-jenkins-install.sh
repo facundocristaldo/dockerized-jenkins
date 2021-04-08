@@ -4,8 +4,8 @@
 #apt-get update -y
 #apt-get upgrade -y
 
-groupadd docker
-usermod -aG docker docker
+groupadd  --gid 1000 docker
+useradd  --uid 1000 ubuntu -g docker
 
 # install docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
