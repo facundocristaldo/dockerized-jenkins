@@ -4,8 +4,8 @@
 #apt-get update -y
 #apt-get upgrade -y
 
-groupadd  --gid 1000 docker
-useradd  --uid 1000 ubuntu -g docker
+sudo groupadd  --gid 1000 docker
+sudo useradd  --uid 1000 ubuntu -g docker
 
 # install docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -14,10 +14,10 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
-apt-get update
-apt-get install docker-ce docker-ce-cli containerd.io -y
-systemctl enable docker
-systemctl start docker
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+sudo systemctl enable docker
+sudo systemctl start docker
 
 # Optional docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
